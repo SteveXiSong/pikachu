@@ -1,4 +1,4 @@
-package structures;
+package service.ModelService.structures;
 
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ public class binPredRes {
     private String modelName;
 
     /*
-    public binPredRes(long score, final String name) {
+    public service.ModelService.structures.binPredRes(long score, final String name) {
         this.score = score;
         this.modelName = name;
     }

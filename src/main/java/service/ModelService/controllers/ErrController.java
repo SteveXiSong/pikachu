@@ -1,4 +1,4 @@
-package services.controllers;
+package service.ModelService.controllers;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
