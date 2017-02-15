@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
-import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
+import com.amazonaws.auth.*;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
@@ -34,16 +34,14 @@ public class binPredResController {
     @RequestMapping("/getPrediction")
     public binPredRes getPrediction(@RequestParam(value="modelName", defaultValue="BinaryPrediction")
             String modeName) {
+        log.info("Start getPrediction");
         return new binPredRes(counter.incrementAndGet(), String.format(template, modeName));
     }
 
     @RequestMapping("/getDDBTableItem")
     public String getDDBTableItem() {
         log.info("Start initing the DDB Client.");
-        AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder
-                .standard()
-                .withRegion(Regions.US_EAST_1)
-                .build();
+        AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard().build();
 
         String tableName = "pikachu_test_table";
         Map<String, AttributeValue> key = new HashMap<String, AttributeValue>() {{
