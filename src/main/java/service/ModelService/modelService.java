@@ -2,6 +2,7 @@ package service.ModelService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * Created by Steve on 2/13/17.

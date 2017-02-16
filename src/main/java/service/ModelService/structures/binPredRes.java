@@ -11,11 +11,4 @@ import lombok.AllArgsConstructor;
 public class binPredRes {
     private long score;
     private String modelName;
-
-    /*
-    public service.ModelService.structures.binPredRes(long score, final String name) {
-        this.score = score;
-        this.modelName = name;
-    }
-    */
 }
