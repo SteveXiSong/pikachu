@@ -1,6 +1,4 @@
-package service.ModelService.structures.client;
-
-import java.util.Set;
+package com.ActivationIntelligence.structures.client;
 
 /**
  * Created by Steve on 2/16/17.

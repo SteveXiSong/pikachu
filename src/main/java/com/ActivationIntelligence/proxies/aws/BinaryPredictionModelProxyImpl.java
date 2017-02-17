@@ -1,13 +1,12 @@
-package service.ModelService.proxies.aws;
+package com.ActivationIntelligence.proxies.aws;
 
 import lombok.NonNull;
 import lombok.extern.log4j.Log4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import service.ModelService.common.exceptions.InvalidInputException;
-import service.ModelService.proxies.aws.exceptions.ProxyException;
-import service.ModelService.structures.model.binaryPrediction.BinaryPredictionInput;
-import service.ModelService.structures.model.binaryPrediction.BinaryPredictionResult;
+import com.ActivationIntelligence.common.exceptions.InvalidInputException;
+import com.ActivationIntelligence.proxies.aws.exceptions.ProxyException;
+import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionInput;
+import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionResult;
 
 /**
  * Created by Steve on 2/16/17.

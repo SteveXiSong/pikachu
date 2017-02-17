@@ -1,4 +1,4 @@
-package service.ModelService.proxies.aws.exceptions;
+package com.ActivationIntelligence.proxies.aws.exceptions;
 
 /**
  * Created by Steve on 2/16/17.

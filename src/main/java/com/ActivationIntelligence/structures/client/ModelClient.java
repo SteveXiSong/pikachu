@@ -1,4 +1,4 @@
-package service.ModelService.structures.client;
+package com.ActivationIntelligence.structures.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

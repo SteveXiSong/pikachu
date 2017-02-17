@@ -1,4 +1,4 @@
-package service.ModelService.controllers;
+package com.ActivationIntelligence.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import service.ModelService.common.exceptions.InvalidInputException;
-import service.ModelService.proxies.aws.BinaryPredictionModelProxy;
-import service.ModelService.proxies.aws.exceptions.ProxyException;
-import service.ModelService.structures.client.ModelClient;
-import service.ModelService.structures.model.binaryPrediction.BinaryPredictionInput;
-import service.ModelService.structures.model.binaryPrediction.BinaryPredictionResult;
+import com.ActivationIntelligence.common.exceptions.InvalidInputException;
+import com.ActivationIntelligence.proxies.aws.BinaryPredictionModelProxy;
+import com.ActivationIntelligence.proxies.aws.exceptions.ProxyException;
+import com.ActivationIntelligence.structures.client.ModelClient;
+import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionInput;
+import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionResult;
 
 /**
  * Created by Steve on 2/13/17.

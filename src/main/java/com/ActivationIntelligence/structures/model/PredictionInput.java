@@ -1,4 +1,4 @@
-package service.ModelService.structures.model;
+package com.ActivationIntelligence.structures.model;
 
 import java.io.Serializable;
 

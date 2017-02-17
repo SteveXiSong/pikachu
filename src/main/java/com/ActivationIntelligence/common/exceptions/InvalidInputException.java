@@ -1,4 +1,4 @@
-package service.ModelService.common.exceptions;
+package com.ActivationIntelligence.common.exceptions;
 
 /**
  * Created by Steve on 2/16/17.
