@@ -45,11 +45,13 @@ public class BinaryPredictionController {
     @Autowired
     private BinaryPredictionModelProxy binaryPredictionModelProxy;
 
+    /*
     @GetMapping("/")
     public String showHomePage() {
         log.info("Showing Model Service Home Page...");
         return "Hello Model Service!";
     }
+    */
 
     @GetMapping("/modelservice/getPrediction")
     public BinaryPredictionResult getPrediction (
