@@ -45,7 +45,13 @@ public class BinaryPredictionController {
     @Autowired
     private BinaryPredictionModelProxy binaryPredictionModelProxy;
 
-    @GetMapping("/getPrediction")
+    @GetMapping("/")
+    public String showHomePage() {
+        log.info("Showing Model Service Home Page...");
+        return "Hello Model Service!";
+    }
+
+    @GetMapping("/modelservice/getPrediction")
     public BinaryPredictionResult getPrediction (
             @RequestParam(value="modelName", defaultValue="BinaryPrediction")
             String modeName, Map<String, String> variables)
@@ -73,7 +79,7 @@ public class BinaryPredictionController {
         return binaryPredictionResult;
     }
 
-    @GetMapping("/getDDBTableItem")
+    @GetMapping("/modelservice/getDDBTableItem")
     public String getDDBTableItem() {
         log.info("Start initing the DDB client.");
         AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard()
@@ -88,7 +94,7 @@ public class BinaryPredictionController {
                 .withKey(key);
         GetItemResult result = ddb.getItem(request);
         log.info("Get: " + result.getItem().toString());
-        return "Steve";
+        return result.getItem().toString();
     }
 
     /**

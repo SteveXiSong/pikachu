@@ -37,3 +37,8 @@ out
 test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
+
+#cert
+*.crt
+*.csr
+*.key

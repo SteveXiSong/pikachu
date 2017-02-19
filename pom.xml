@@ -6,7 +6,7 @@
 
     <groupId>com.activationintelligence.modelservice</groupId>
     <artifactId>pikachu</artifactId>
-    <version>1.0-Gamma</version>
+    <version>1.0-ALPHA</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -111,6 +111,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
+
+        <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        -->
 
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
