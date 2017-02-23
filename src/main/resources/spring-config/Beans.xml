@@ -6,8 +6,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-<bean id="binaryPredictionModelProxy" class="com.ActivationIntelligence.proxies.aws.BinaryPredictionModelProxyImpl">
-    <property name="region" value="us-east-1"/>
-</bean>
+    <!--
+    <bean id="binaryPredictionModelProxy"
+          class="com.ActivationIntelligence.proxies.aws.BinaryPredictionModelProxyImpl">
+        <property name="region" value="us-east-1"/>
+    </bean>
+
+    <bean id="amazonSQS" class="com.ActivationIntelligence.beans.AwsSqsFactoryBean">
+    </bean>
+    -->
 
 </beans>

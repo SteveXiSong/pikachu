@@ -17,7 +17,7 @@ import java.util.Set;
 @Entity
 @Builder
 @AllArgsConstructor
-public class ModelClientRole implements Role {
+public class ModelRole implements Role {
     @Id
     @GeneratedValue
     private String roleId;

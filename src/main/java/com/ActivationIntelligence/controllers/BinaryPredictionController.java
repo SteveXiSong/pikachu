@@ -1,30 +1,31 @@
 package com.ActivationIntelligence.controllers;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.ActivationIntelligence.common.utils.Serializer;
+import com.ActivationIntelligence.proxies.aws.SQSProxy;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
 import com.amazonaws.services.dynamodbv2.model.GetItemResult;
-import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
-import com.amazonaws.services.sqs.model.SendMessageRequest;
-import com.amazonaws.services.sqs.model.SendMessageResult;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.ActivationIntelligence.common.exceptions.InvalidInputException;
 import com.ActivationIntelligence.proxies.aws.BinaryPredictionModelProxy;
 import com.ActivationIntelligence.proxies.aws.exceptions.ProxyException;
-import com.ActivationIntelligence.structures.client.ModelClient;
+import com.ActivationIntelligence.structures.client.ModelUser;
+import com.ActivationIntelligence.structures.messages.SQSDummyMessage;
 import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionInput;
 import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredictionResult;
 
@@ -43,42 +44,50 @@ public class BinaryPredictionController {
     private static final String SQS_URL_TEST = "https://sqs.us-east-1.amazonaws.com/426330653730/pikachu_getPrediction_variables_test";
 
     @Autowired
+    private SQSProxy sqsProxy;
+    @Autowired
     private BinaryPredictionModelProxy binaryPredictionModelProxy;
-
-    /*
-    @GetMapping("/")
-    public String showHomePage() {
-        log.info("Showing Model Service Home Page...");
-        return "Hello Model Service!";
-    }
-    */
 
     @GetMapping("/modelservice/getPrediction")
     public BinaryPredictionResult getPrediction (
             @RequestParam(value="modelName", defaultValue="BinaryPrediction")
             String modeName, Map<String, String> variables)
-            throws ProxyException, InvalidInputException {
+            throws ProxyException, InvalidInputException, Exception {
         log.info(String.format("Start getPrediction model name [%s]", modeName));
 
+        Map<String, String> var = new HashMap<String, String>(){
+            {
+                put("email", "steve@gmail.com");
+                put("modelname", modeName);
+            }};
+
         BinaryPredictionInput input = BinaryPredictionInput.builder()
-                .variables(new HashMap<String, String>(){{
-                    put("email", "steve@gmail.com");
-                    put("modelname", modeName);
-                }})
+                .variables(var)
                 .build();
 
-        AmazonSQS sqs = AmazonSQSClientBuilder.standard()
-                .withRegion(Regions.US_EAST_1)
-                .build();
+        SQSDummyMessage msg = new SQSDummyMessage();
+        msg.setMsgBody("This is msg body.");
+        msg.setTimestamp(System.currentTimeMillis());
+        msg.setVars(var);
 
-        SendMessageRequest request = new SendMessageRequest();
-        request.setMessageBody(input.toString());
-        request.setQueueUrl(SQS_URL_TEST);
-        SendMessageResult result = sqs.sendMessage(request);
-        //log.info(String.format("sent message. message id [%d]", result.getMessageId()));
+        sqsProxy.sendMessage(Serializer.serialize(msg), SQS_URL_TEST);
 
-        BinaryPredictionResult binaryPredictionResult = binaryPredictionModelProxy.getFakePrediction(input);
+        BinaryPredictionResult binaryPredictionResult =
+                binaryPredictionModelProxy.getFakePrediction(input);
         return binaryPredictionResult;
+    }
+
+    @RequestMapping("/modelservice/readSQSmsg")
+    public String ReadSQSmsg()
+            throws ProxyException, InvalidInputException, Exception {
+
+        SQSDummyMessage msgBody = Serializer.deserialize(
+                sqsProxy.receiveMessage(SQS_URL_TEST, 1).get(0).getBody(),
+                SQSDummyMessage.class);
+
+        log.info(String.format("Received message body [%s].", msgBody));
+
+        return msgBody.toString();
     }
 
     @GetMapping("/modelservice/getDDBTableItem")
@@ -104,7 +113,7 @@ public class BinaryPredictionController {
      * -i http://localhost:8080/addCustomerData
      */
     @PostMapping("/addCustomerData")
-    public boolean addCustomerData(@RequestBody ModelClient cus) {
+    public boolean addCustomerData(@RequestBody ModelUser cus) {
         log.info(String.format("Received %s", cus.toString()));
         return cus==null?false:true;
     }

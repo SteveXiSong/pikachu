@@ -21,7 +21,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class ModelClient implements Client {
+public class ModelUser implements User {
     @Id
     @GeneratedValue
     private String clientId;
@@ -34,5 +34,5 @@ public class ModelClient implements Client {
     private Date registrationDate;
 
     @OneToMany(mappedBy = "roleName")
-    private Set<ModelClientRole> modelClientRole;
+    private Set<ModelRole> modelClientRole;
 }

@@ -1,5 +1,6 @@
 package com.ActivationIntelligence.proxies.aws;
 
+import lombok.Data;
 import lombok.NonNull;
 import lombok.extern.log4j.Log4j;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ import com.ActivationIntelligence.structures.model.binaryPrediction.BinaryPredic
  * Created by Steve on 2/16/17.
  */
 @Log4j
+@Data
 @Configuration
 public class BinaryPredictionModelProxyImpl implements BinaryPredictionModelProxy {
     private String region;

@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by Steve on 2/13/17.
  */
 @SpringBootApplication
-public class modelService {
+public class modelServiceMain {
     public static void main(String[] args) {
-        SpringApplication.run(modelService.class, args);
+        SpringApplication.run(modelServiceMain.class, args);
     }
 }
