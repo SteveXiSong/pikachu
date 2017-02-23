@@ -6,7 +6,9 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.ActivationIntelligence.common.utils.Serializer;
+import com.ActivationIntelligence.proxies.aws.DDBProxy;
 import com.ActivationIntelligence.proxies.aws.SQSProxy;
+import com.ActivationIntelligence.structures.items.DDBDummyItem;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -38,7 +40,7 @@ public class BinaryPredictionController {
 
     private static final String template = "Prediction is %s!";
     private final AtomicLong counter = new AtomicLong();
-    private static final String TABLE_NAME = "modelInstanceId";
+    private static final String FIELD_NAME = "modelInstanceId";
 
     private static final String SQS_NAME_TEST = "pikachu_getPrediction_variables_test";
     private static final String SQS_URL_TEST = "https://sqs.us-east-1.amazonaws.com/426330653730/pikachu_getPrediction_variables_test";
@@ -47,6 +49,8 @@ public class BinaryPredictionController {
     private SQSProxy sqsProxy;
     @Autowired
     private BinaryPredictionModelProxy binaryPredictionModelProxy;
+    @Autowired
+    private DDBProxy ddbProxy;
 
     @GetMapping("/modelservice/getPrediction")
     public BinaryPredictionResult getPrediction (
@@ -91,21 +95,30 @@ public class BinaryPredictionController {
     }
 
     @GetMapping("/modelservice/getDDBTableItem")
-    public String getDDBTableItem() {
-        log.info("Start initing the DDB client.");
-        AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard()
-                .withRegion(Regions.US_EAST_1).build();
-
+    public String getDDBTableItem() throws Exception {
         String tableName = "pikachu_test_table";
         Map<String, AttributeValue> key = new HashMap<String, AttributeValue>() {{
-            put(TABLE_NAME, new AttributeValue("abc1"));
+            put(FIELD_NAME, new AttributeValue("abc1"));
         }};
-        GetItemRequest request = new GetItemRequest()
-                .withTableName(tableName)
-                .withKey(key);
-        GetItemResult result = ddb.getItem(request);
-        log.info("Get: " + result.getItem().toString());
-        return result.getItem().toString();
+
+        String ret = ddbProxy.getItem(tableName, key);
+        return ret;
+    }
+
+    @RequestMapping("/modelservice/saveDDBTableItem")
+    public void saveDDBTableItem(
+            @RequestParam(value = "itemValue", defaultValue = "defaultValue")
+            String value)
+            throws Exception {
+
+        DDBDummyItem item = new DDBDummyItem();
+        item.setModelInstanceId("id1");
+        item.setTimestamp(System.currentTimeMillis());
+        item.setNumber(123);
+        item.setMap(new HashMap<String, String>(){{
+            put("haha", value);
+        }});
+        ddbProxy.saveItem(item);
     }
 
     /**

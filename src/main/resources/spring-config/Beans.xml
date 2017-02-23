@@ -12,7 +12,7 @@
         <property name="region" value="us-east-1"/>
     </bean>
 
-    <bean id="amazonSQS" class="com.ActivationIntelligence.beans.AwsSqsFactoryBean">
+    <bean id="amazonSQS" class="com.ActivationIntelligence.beans.AwsSQSFactoryBean">
     </bean>
     -->
 

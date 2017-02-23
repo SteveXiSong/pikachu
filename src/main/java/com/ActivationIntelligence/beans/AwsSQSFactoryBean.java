@@ -6,7 +6,6 @@ import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 @Configuration
 @NoArgsConstructor
-public class AwsSqsFactoryBean implements FactoryBean<AmazonSQS> {
+public class AwsSQSFactoryBean implements FactoryBean<AmazonSQS> {
     private Regions region;
 
     public AmazonSQS amazonSQS() throws Exception {
