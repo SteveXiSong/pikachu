@@ -91,12 +91,12 @@ fieldset {
 }
 
 .section-padding {
-    padding: 60px 0px;
+    padding: 10px 0px;
 }
 
 .section-title {
     color: #333;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 .section-title h2 {
@@ -185,7 +185,7 @@ fieldset {
 */
 
 .header-area {
-    background: url(../imgs/me_utha.JPG) no-repeat scroll 0 0 / cover;
+    background: url(../imgs/steve_solduc.JPG) no-repeat scroll 0 0 / cover;
     background-size: cover;
     position: relative;
     height: 100%;
@@ -248,9 +248,15 @@ fieldset {
 .header-text h3 {
     margin: 10px 0px;
     font-size: 70px;
-    text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 10px;
+    letter-spacing: 8px;
+}
+
+.header-text h4Chinese {
+    margin: 10px 0px;
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 15px;
 }
 
 .social-link {}
@@ -264,6 +270,46 @@ fieldset {
 
 .social-link a i {
     font-size: 20px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 2.5 BLOG
+* ----------------------------------------------------------------------------------------
+*/
+
+.blog-timeline {
+    background: #fff;
+}
+
+.blog-title {
+    color: #333;
+}
+
+.blog-title h2 {
+    font-size: 30px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.blog-content {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.blog-content h3 {
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    margin-top: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.blog-content h5 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 0px;
 }
 
 
@@ -293,7 +339,7 @@ fieldset {
     text-transform: uppercase;
     font-size: 20px;
     color: #333;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
     line-height: 50px;
     font-weight: 700;
 }
@@ -345,11 +391,11 @@ fieldset {
 }
 
 .about-me-text {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .about-me-text h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 0;
