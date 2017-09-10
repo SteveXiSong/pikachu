@@ -90,6 +90,16 @@ fieldset {
     padding: 0;
 }
 
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
 .section-padding {
     padding: 10px 0px;
 }
@@ -249,21 +259,14 @@ fieldset {
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0px;
-    font-family: "Courier New", Courier, monospace;
-}
-
-.header-text h2Chinese {
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    font-family: Georgia, "Times New Roman", "KaiTi", "楷体", STKaiti, "华文楷体", serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-text h4 {
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0px;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-text h3 {
@@ -497,36 +500,6 @@ a.about-button:hover {
     color: #333;
 }
 
-
-/*
-* ----------------------------------------------------------------------------------------
-* 06.SERVICE CSS STYLE
-* ----------------------------------------------------------------------------------------
-*/
-
-.service-area {
-    background: #f8f8f8;
-    padding-top: 60px;
-}
-
-.single-service {
-    margin-bottom: 60px;
-}
-
-.single-service i {
-    font-size: 40px;
-    color: #333;
-}
-
-.single-service h2 {
-    margin: 20px 0px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.single-service p {}
-
-
 /*
 * ----------------------------------------------------------------------------------------
 * 07.WORK CSS STYLE
@@ -606,33 +579,6 @@ a.about-button:hover {
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
 }
-
-
-/*
-* ----------------------------------------------------------------------------------------
-* 08.TESTIMONIAL CSS STYLE
-* ----------------------------------------------------------------------------------------
-*/
-
-.testimonial-area {
-    background: #F8F8F8;
-}
-
-.single-testimonial {
-    text-align: center;
-    padding: 0px 200px;
-}
-
-.single-testimonial h2 {
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.single-testimonial h3 {
-    font-size: 12px;
-    font-style: italic;
-}
-
 
 /*
 * ----------------------------------------------------------------------------------------
