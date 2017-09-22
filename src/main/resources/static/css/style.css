@@ -228,9 +228,11 @@ hr {
 }
 
 .header-text h1 {
-    font-size: 18px;
-    margin: 0;
-    font-weight: 300;
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 }
 
 .cd-headline span {
@@ -262,17 +264,17 @@ hr {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.header-text h4 {
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .header-text h3 {
     font-size: 70px;
     font-weight: 700;
     letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-text h4 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -321,17 +323,37 @@ hr {
     letter-spacing: 0px;
     font-weight: 700;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 0px;
 }
 
 .blog-content {
-    padding-top: 60px;
+    padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.blog-content h1 {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.blog-content h2 {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .blog-content h3 {
     letter-spacing: 1px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     font-weight: 600;
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
