@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html ng-app><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <!-- META TAG -->
     <meta charset="utf-8">
@@ -35,7 +35,6 @@
 </head>
 
 <body>
-
     <!-- START PRELOADER AREA-->
     <div class="preloader-area" style="display: none;">
         <div class="preloader" style="display: none;">
@@ -99,6 +98,8 @@
                                     </li>
                                     <li class=""><a class="smoth-scroll" href="#blog">Weblog</a>
                                     </li>
+                                    <li class=""><a class="smoth-scroll" href="lab.html#blog-timeline">Lab</a>
+                                    </li>
                                     <li class=""><a class="smoth-scroll" href="notes.html#blog-softskill">Notes</a>
                                     </li>
                                     <li class=""><a class="smoth-scroll" href="annual_plan.html#blog-plan">Plans</a>
@@ -117,6 +118,74 @@
 
     <section id="blog" class="blog-timeline">
         <div class="container">
+            <div class="row">
+                <div class="col-md-10 text-center">
+                    <div class="blog-title">
+                        <h2>A Decade of Dynamo: Powering the next wave of high-performance, internet-scale applications</h2>
+                        <h2>Dynamo 十年： 驱动下一代高性能、互联网级别应用</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="blog-content">
+                        <h3><a href="http://www.allthingsdistributed.com/2017/10/a-decade-of-dynamo.html">
+                            By Werner Vogels on 02 October 2017 11:00 AM</a></h3>
+                        <h3>Translated By Steve Song on 23 October 2017 11:00 PM PDT</h3>
+
+                        <p>今天标志着亚马逊Dynamo白皮书发表的十周年。这个里程碑性的事件使我回想了一下过去十年内在数据库领域有多少创新性的发明，
+                        并且提醒了我为什么从用户角度解决困难的问题可以有超出想象的持续性效果。
+                            <br>
+
+                        事情最初可以追溯到2004年。亚马逊那时候还在使用着Oracle带有集群与备份的企业级数据库。我们拥有优秀的数据库管理员团队，而且
+                        可以与Oracle的顶尖专家沟通。我们尝试着超越当时最领先的商业数据库极限，但却没有能力维持可用性（availability）、可扩展性
+                        （scalability）以及性能要求来满足亚马逊日益增长的商业需求。
+                            <br>
+
+                        这种跑在Oracle上不堪重负的数据库使得我们开始评估是否可以开发一款目的性更强的数据库来满足我们长期的商业需求。我们优先专注于
+                        那些会支持我们高扩展性、关键任务服务的需求，比如亚马逊购物车。同时，我们也大胆质疑传统关系型数据库提出的假设，如强一致性的需求。
+                        我们的目标是开发一中可以有着无限扩展性、可靠的性能以及高可用性的数据库来支持我们快速发展业务。
+                            <br>
+
+                        随着研究当时数据的深入，我们发现那些数据库并不常常以它们的关系型能力而被使用。大约70%的操作仅仅是键-值那类操作。也就是说，
+                        仅仅主键被使用了，然后整行数据会被返回。大约20%的操作返回一个行的集合，但是也仅仅是在一个表上。
+                            <br>
+
+                        带着这些需求与挑战当前状况的意愿，一小队分布式系统专家汇集起来，设计了一款可以同时支持读写扩展的可横向扩展数据库，来满足我们的
+                        长期业务上的需求。这就是亚马逊Dynamo数据库的起源。
+                            <br>
+
+                        Dynamo数据库的成功激励了我们撰写了<a href="http://www.allthingsdistributed.com/2007/10/amazons_dynamo.html"> Amazon's Dynamo Whitepaper</a>,
+                        同时把他发布在了2007 ACM SOSP，希望可以是业界同行获益。这篇论文认可度很高，而且对创造出当今分布式数据库皆知的NoSQL起着催化的作用。
+                            <br>
+
+                            当然，没有哪个发明创造是独立发生的。在NoSQL进化的过程中，云计算也在发展着。随着AWS的业务增长，我们意识到外部的客户也同样会认为我们的Dynamo
+                            会非常有用，就像我们内部这么认为的。所以我们建立了一套全部部署在AWS上基于Dynamo的数据库服务。
+                            <br>
+
+                            面向部署在云数据库服务的需求使得设计要求比我们为亚马逊内部设计的系统更高。云部署版本要求有：
+                            <br>
+
+                        <li>可扩展性 - 服务必须可以支持几十万甚至上百万的AWS客户。每一个客户都可以用它支持它们的互联网级应用。<br></li>
+
+                        <li>安全性 - 服务必须外部用户的机密数据。这要求更高的访问控制级别和安全措施。<br></li>
+
+                        <li>持久性与高可用性 - 服务必须有极其的容错能力，这样客户才能信任它跑关键任务。<br></li>
+
+                        <li>高性能 - 服务必须可以面对不同的任务时保持可靠的性能。<br></li>
+
+                        <li>可管理性 - 服务必须易于管理和操作。如果我们要获得更多的用户来使用它，这个或许是最重要的。<br></li>
+
+                            （未完待续）<br>
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
             <div class="row">
                 <div class="col-md-10 text-center">
                     <div class="blog-title">
