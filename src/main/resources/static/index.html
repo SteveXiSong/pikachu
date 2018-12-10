@@ -24,6 +24,7 @@
     <link href="./css/animated-text.css" rel="stylesheet">
     <!-- MAIN CSS -->
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/sidenav.css" rel="stylesheet">
     <!-- RESPONSIVE CSS -->
     <link href="./css/responsive.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,7 +33,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
+<script>
+    $(function(){
+        $( "#menubar" ).load( "menubar.html" );
+        });
+</script>
+
 
 <body>
     <!-- START PRELOADER AREA-->
@@ -92,22 +101,8 @@
                                 </button>
                             </div>
 
-                            <div class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a class="smoth-scroll" href="#home">Home <div class="ripple-wrapper"></div></a>
-                                    </li>
-                                    <li class=""><a class="smoth-scroll" href="#blog">Weblog</a>
-                                    </li>
-                                    <li class=""><a class="smoth-scroll" href="lab.html#blog-timeline">Lab</a>
-                                    </li>
-                                    <li class=""><a class="smoth-scroll" href="notes.html#blog-softskill">Notes</a>
-                                    </li>
-                                    <li class=""><a class="smoth-scroll" href="annual_plan.html#blog-plan">Plans</a>
-                                    </li>
-                                    <li class=""><a class="smoth-scroll" href="about_me.html#about">About me</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <div id="menubar"></div>
+
                         </div>
                     </div>
                 </div>
@@ -118,20 +113,19 @@
 
     <section id="blog" class="blog-timeline">
         <div class="container">
+            <div class="column-left">
             <div class="row">
                 <div class="col-md-10 text-center">
                     <div class="blog-title">
                         <h2><a href="https://github.com/SteveXiSong/LeastCommonOpFieldAlgorithm/blob/master/DecisionTreeDecoderGenerator.pdf">
-                            An N-ary decision tree generation algorithm for Dyninst aarch64 instruction decoder(original)</a></h2>
+                            An N-ary decision tree generation algorithm for Dyninst aarch64 instruction decoder</a></h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-10">
                     <div class="blog-content">
-                        <h3><a href="https://github.com/SteveXiSong/LeastCommonOpFieldAlgorithm/blob/master/DecisionTreeDecoderGenerator.pdf">
-                            By Steve Song on 9 July 2018</a></h3>
-                        <h3>A creative work by Steve Song</h3>
+                        <h3>By Steve Song on 9 July 2018</h3>
 
                         <p>This is paper about my work in the Paradyn Lab almost 3 years ago. I realized it was quite
                         an interesting work and would like to share. All the copy right/Intellectual Properties are
@@ -139,6 +133,7 @@
 
 
                     </div>
+                    <hr>
                 </div>
             </div>
 
@@ -181,16 +176,13 @@
                             未来的工作还是工作的未来？
                             <br>
 
-
-
-
                         </p>
 
                     </div>
+                    <hr>
                 </div>
             </div>
 
-            <hr>
 
             <div class="row">
                 <div class="col-md-10 text-center">
@@ -266,10 +258,10 @@
                         </p>
 
                     </div>
+                    <hr>
                 </div>
             </div>
 
-            <hr>
 
             <div class="row">
                 <div class="col-md-10 text-center">
@@ -549,7 +541,16 @@
                         不这么做，我绝对会错过那些我们本该抓住的经济与社会上的机遇。
                     </p>
                 </div>
+                <hr>
             </div>
+            </div>
+        </div>
+
+            <div class="column-right">
+                <div class="sidenav">
+                    <h1>Steve Song</h1>
+                    <p>A software engineer in Data/Cloud/AI area. </p>
+                </div>
             </div>
         </div>
     </section>
@@ -560,7 +561,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>Materials are from public online resources.<br>
-                        Powered by <a href="aws.amazon.com">AWS</a>/<a href="https://github.com/retext-project/retext">ReText</a>.
+                        Powered by <a href="https://aws.amazon.com">AWS</a>/<a href="https://github.com/retext-project/retext">ReText</a>.
                     </p>
                 </div>
             </div>

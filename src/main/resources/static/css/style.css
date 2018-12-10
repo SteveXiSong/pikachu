@@ -65,7 +65,7 @@ a {
 }
 
 a:hover {
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -673,3 +673,4 @@ a.about-button:hover {
 .footer-area p {
     margin: 0;
 }
+
